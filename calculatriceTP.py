@@ -4,8 +4,13 @@ continuer = "oui"
 historique = []
 
 while continuer == "oui":
-    a = float(input("Entrez le premier nombre : "))
-    b = float(input("Entrez le deuxième nombre : "))
+
+    try:
+        a = float(input("Entrez le premier nombre : "))
+        b = float(input("Entrez le deuxième nombre : "))
+    except ValueError:
+        print("Erreur : vous devez entrer des nombres !")
+        continue
 
     print("1 - Addition")
     print("2 - Soustraction")
