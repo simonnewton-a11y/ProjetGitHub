@@ -1,6 +1,7 @@
 print("=== MA CALCULATRICE ===")
 
 continuer = "oui"
+historique = []
 
 while continuer == "oui":
     a = float(input("Entrez le premier nombre : "))
@@ -14,19 +15,33 @@ while continuer == "oui":
     choix = input("Choisissez une opération : ")
 
     if choix == "1":
-        print("Résultat :", a + b)
+        resultat = a + b
+        print("Résultat :", resultat)
     elif choix == "2":
-        print("Résultat :", a - b)
+        resultat = a - b
+        print("Résultat :", resultat)
     elif choix == "3":
-        print("Résultat :", a * b)
+        resultat = a * b
+        print("Résultat :", resultat)
     elif choix == "4":
         if b != 0:
-            print("Résultat :", a / b)
+            resultat = a / b
+            print("Résultat :", resultat)
         else:
             print("Impossible de diviser par zéro")
+            resultat = None
     else:
         print("Choix invalide")
+        resultat = None
+
+    if resultat is not None:
+        historique.append(f"{a} opération {choix} {b} = {resultat}")
 
     continuer = input("Voulez-vous faire un autre calcul ? (oui/non) ")
+
+print("\n=== HISTORIQUE DES CALCULS ===")
+
+for calcul in historique:
+    print(calcul)
 
 print("Merci d'avoir utilisé la calculatrice !")
